@@ -30,7 +30,6 @@ class HomeScene extends Component {
                                     <Route path={'/home/answered'} component={AnsweredScene} />
                                     <Route path={'/home/unanswered'} component={UnansweredScene} />
                                 </Switch>
-
                             </div>
                         </Row>
                     </Container>
