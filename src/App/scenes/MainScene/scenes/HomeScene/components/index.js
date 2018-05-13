@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import { Container, ListGroup, ListGroupItem, Row, Nav, NavItem, NavLink as ReactStrapNavLink } from 'reactstrap';
+import { Container, Row, Nav, NavItem, NavLink as ReactStrapNavLink } from 'reactstrap';
 import {NavLink, Redirect, Route, Switch} from "react-router-dom";
 
 import { AnsweredScene } from '../scenes/AnsweredScene';

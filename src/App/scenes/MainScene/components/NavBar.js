@@ -46,6 +46,7 @@ class NavBar extends Component {
                             <NavItem className="text-left text-nowrap">
                                 <a className="nav-link">
                                     <img className="img-fluid rounded-circle px-0"
+                                         alt="Avatar"
                                          src="https://www.gravatar.com/avatar/de057083353e7435174218bcaa3e191a?s=64&amp;d=identicon&amp;r=PG"
                                          width="32px" height="32px"
                                     />

@@ -5,7 +5,7 @@ import { LoginScene } from './scenes/LoginScene';
 import { MainScene } from './scenes/MainScene';
 
 export default () => {
-    const loggedIn = true;
+    const loggedIn = false;
     return (
         <Router>
             <Fragment>
