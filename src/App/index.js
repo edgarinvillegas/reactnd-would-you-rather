@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import LoginScene from './scenes/LoginScene/components';  // TODO: evaluate to remove /components in import
-import MainScene from './scenes/MainScene/components'   // TODO: evaluate to remove /components in import
+import { LoginScene } from './scenes/LoginScene';
+import { MainScene } from './scenes/MainScene';
 
 export default () => {
     const loggedIn = true;
@@ -10,7 +10,8 @@ export default () => {
         <Router>
             <Fragment>
                 {loggedIn ? (
-                    <Route path={'/'} component={MainScene} />
+                    /*<Route path={'/'} component={MainScene} />*/
+                    <MainScene />
                 ) : (
                     <LoginScene/>
                 )}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Collapse, Container } from 'reactstrap';
+import {Link, NavLink} from "react-router-dom";
 
 class NavBar extends Component {
     state = {
@@ -7,7 +8,6 @@ class NavBar extends Component {
     };
 
     toggle = () => {
-        console.log('toggle, newValue: ', !this.state.collapsed);
         this.setState((prevState)=>({
             collapsed: !prevState.collapsed
         }));
@@ -18,7 +18,7 @@ class NavBar extends Component {
         return (
             <nav className="navbar navbar-expand-md bg-primary navbar-dark">
                 <Container>
-                    <a className="navbar-brand" href="#">Would you rather?</a>
+                    <Link className="navbar-brand" to="/">Would you rather?</Link>
                     <Button onClick={this.toggle}
                             className="navbar-toggler navbar-toggler-right">
                         <span className="navbar-toggler-icon"></span>
@@ -26,8 +26,8 @@ class NavBar extends Component {
                     <Collapse isOpen={!this.state.collapsed} id="navbar2SupportedContent" className="navbar-collapse text-center justify-content-end">
                         <ul className="navbar-nav">
                             <li className="nav-item text-left text-nowrap">
-                                <a className="nav-link active" href="#">
-                                    <i className="fa d-inline fa-lg fa-home"></i> Home</a>
+                                <NavLink className="nav-link active" to="/home">
+                                    <i className="fa d-inline fa-lg fa-home"></i> Home</NavLink>
                             </li>
                             <li className="nav-item text-left text-nowrap">
                                 <a className="nav-link" href="#">

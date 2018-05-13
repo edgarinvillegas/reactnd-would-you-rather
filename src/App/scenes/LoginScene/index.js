@@ -1,2 +1,2 @@
 import LoginScene from './components';
-export default LoginScene;
+export { LoginScene };
