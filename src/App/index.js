@@ -1,21 +1,32 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { LoginScene } from './scenes/LoginScene';
 import { MainScene } from './scenes/MainScene';
 
-export default () => {
-    const loggedIn = false;
-    return (
-        <Router>
-            <Fragment>
-                {loggedIn ? (
-                    /*<Route path={'/'} component={MainScene} />*/
-                    <MainScene />
-                ) : (
-                    <LoginScene/>
-                )}
-            </Fragment>
-        </Router>
-    );
+class App extends Component {
+    render() {
+        const loggedIn = !!this.props.authedUserId;
+        return (
+            <Router>
+                <Fragment>
+                    {loggedIn ? (
+                        /*<Route path={'/'} component={MainScene} />*/
+                        <MainScene />
+                    ) : (
+                        <LoginScene/>
+                    )}
+                </Fragment>
+            </Router>
+        );
+    }
 }
+
+function mapStateToProps(state){
+    return {
+        authedUserId: state.authedUserId
+    };
+}
+
+export default connect(mapStateToProps)(App);
