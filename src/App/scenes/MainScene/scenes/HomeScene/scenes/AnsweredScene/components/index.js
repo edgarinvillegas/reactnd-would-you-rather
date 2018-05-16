@@ -1,27 +1,23 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import {ListGroup, ListGroupItem} from "reactstrap";
 
-export default () => {
-    return (
-        <Fragment>
+import { AnsweredQuestion } from 'App/scenes/MainScene';
+import {connect} from "react-redux";
+
+class AnsweredScene extends Component{
+    render() {
+        return (
             <div className="tab-content mt-2">
                 <div className="tab-pane fade show active" id="tabone" role="tabpanel">
                     <h1 className="">I would rather...</h1>
                     <div className="col-md-12">
                         <ListGroup>
                             <ListGroupItem>
-                                <ListGroup>
-                                    <ListGroupItem color="success"
-                                                   className="d-flex justify-content-between align-items-center">
-                                        <div> Become a super hero</div>
-                                        <span className="fa fa-check"></span>
-                                    </ListGroupItem>
-                                    <ListGroupItem color="danger"
-                                                   className="d-flex justify-content-between align-items-center">
-                                        <div> Become a super villian</div>
-                                        <span className="fa fa-times"></span>
-                                    </ListGroupItem>
-                                </ListGroup>
+                                <AnsweredQuestion
+                                    option1Text={'Become a super hero'}
+                                    option2Text={'Become a super villian2'}
+                                    chosenOption={1}
+                                />
                                 <div className="text-right text-info"> Voted on 05/05/2018, 13:45</div>
                             </ListGroupItem>
                         </ListGroup>
@@ -35,6 +31,8 @@ export default () => {
                         elit.</p>
                 </div>
             </div>
-        </Fragment>
-    );
+        );
+    }
 }
+
+export default connect()(AnsweredScene);

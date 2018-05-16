@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore/*, applyMiddleware*/ } from 'redux';
 
 import appReducer from './App/ducks';
 

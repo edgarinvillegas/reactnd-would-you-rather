@@ -54,9 +54,5 @@ class LoginScene extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch){
-
-}
-
 export default connect()(LoginScene);
 
