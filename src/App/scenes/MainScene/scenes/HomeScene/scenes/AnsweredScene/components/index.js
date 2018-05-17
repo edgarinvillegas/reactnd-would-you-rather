@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import {ListGroup, ListGroupItem} from "reactstrap";
 
 import { AnsweredQuestion } from 'App/scenes/MainScene';
