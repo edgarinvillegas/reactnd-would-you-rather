@@ -1,5 +1,5 @@
 //////Action creator
-const LOGIN = 'App/Login/LOGIN';
+const LOGIN = 'App/data/LOGIN';
 const loginAction = (authedUserId) => ({ type: LOGIN, authedUserId });
 
 export const operations = {
