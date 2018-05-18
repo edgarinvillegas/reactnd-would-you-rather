@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import {ListGroup, ListGroupItem} from "reactstrap";
 
 import { AnsweredQuestion } from 'App/scenes/MainScene';
-import {connect} from "react-redux";
+import { getQuestionsForAuthedUser } from 'App/scenes/MainScene/reducer';
 
 class AnsweredScene extends Component{
     render() {
@@ -10,6 +11,7 @@ class AnsweredScene extends Component{
             <div className="tab-content mt-2">
                 <div className="tab-pane fade show active" id="tabone" role="tabpanel">
                     <h1 className="">I would rather...</h1>
+                    {JSON.stringify(this.props.questionIds)}
                     <div className="col-md-12">
                         <ListGroup>
                             <ListGroupItem>
@@ -35,4 +37,10 @@ class AnsweredScene extends Component{
     }
 }
 
-export default connect()(AnsweredScene);
+function mapStateToProps(state){
+    return {
+        questionIds: getQuestionsForAuthedUser(state)
+    }
+}
+
+export default connect(mapStateToProps)(AnsweredScene);
