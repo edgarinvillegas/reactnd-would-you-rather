@@ -20,6 +20,7 @@ class LoginScene extends Component {
         })
     }
     render() {
+        const { userId } = this.state;
         return (
             <Fragment>
                 <nav className="navbar navbar-expand-md bg-primary navbar-dark">
@@ -35,7 +36,7 @@ class LoginScene extends Component {
                                     <FormGroup className="form-row">
                                         <Label className="col-sm-2 col-form-label text-right col-2">User</Label>
                                         <div className="col-sm-10 col-10">
-                                            <Input placeholder="Enter email" type="select" onChange={this.onUserInputChange} value={this.state.userId}>
+                                            <Input placeholder="Enter email" type="select" onChange={this.onUserInputChange} value={userId}>
                                                 <option value={''}>Select your username</option>
                                                 <option value={'sarahedo'}>Sarah Edo</option>
                                                 <option value={'tylermcginnis'}>Tyler McGinnis</option>

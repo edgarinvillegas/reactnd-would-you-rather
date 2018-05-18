@@ -8,7 +8,7 @@ export default combineReducers({
 
 export const selectors = {
     getAuthedUserId: state => authedUserIdSelectors.getAuthedUserId(state.authedUserId)
-}
+};
 
 
 
