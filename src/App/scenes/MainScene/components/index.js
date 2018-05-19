@@ -6,13 +6,13 @@ import NavBar from "./NavBar";
 import { HomeScene } from '../scenes/HomeScene';
 import { QuestionScene } from '../scenes/QuestionScene';
 import { LeaderboardScene } from '../scenes/LeaderboardScene';
-import { loadUsersAndQuestionsThunk } from '../data/reducer';
+import { operations } from '../data/reducer';
 import { areQuestionsAndUsersLoading } from '../reducer';
 
 
 class MainScene extends Component {
     componentDidMount(){
-        this.props.dispatch(loadUsersAndQuestionsThunk());
+        this.props.dispatch(operations.loadUsersAndQuestionsThunk());
     }
 
     render() {
