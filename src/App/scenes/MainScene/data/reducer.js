@@ -1,5 +1,5 @@
 import { _getUsers$, _getQuestions$ } from './api';
-import {combineReducers} from "redux";
+// import {combineReducers} from "redux";
 
 //types
 const LOAD_USERS = 'App/MainScene/data/LOAD_USERS';

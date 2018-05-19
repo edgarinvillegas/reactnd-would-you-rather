@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import authedUserIdReducer from './authedUserId/reducer';
-import { selectors as authedUserIdSelectors } from './authedUserId/reducer';
+import authedUserIdReducer from './authedUserId';
+import { selectors as authedUserIdSelectors } from './authedUserId';
 
 export default combineReducers({
     authedUserId: authedUserIdReducer

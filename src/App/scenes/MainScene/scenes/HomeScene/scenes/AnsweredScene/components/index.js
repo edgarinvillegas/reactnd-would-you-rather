@@ -12,6 +12,7 @@ class AnsweredScene extends Component{
                 <div className="tab-pane fade show active" id="tabone" role="tabpanel">
                     <h1 className="">I would rather...</h1>
                     {JSON.stringify(this.props.questionIds)}
+
                     <div className="col-md-12">
                         <ListGroup>
                             <ListGroupItem>

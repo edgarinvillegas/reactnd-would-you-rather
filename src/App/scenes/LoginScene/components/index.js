@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Button, Container, Form, FormGroup, Input, Label, Row, } from 'reactstrap';
 
-import { operations } from 'App/data/authedUserId/reducer';
+import { operations } from 'App/data/authedUserId';
 
 class LoginScene extends Component {
     state = {
@@ -12,7 +12,7 @@ class LoginScene extends Component {
     onLoginClick = (event) => {
         const userId = this.state.userId;
         event.preventDefault();
-        this.props.dispatch(operations.login(userId));
+        this.props.dispatch(operations.loginAction(userId));
     }
     onUserInputChange = (event) => {
         this.setState({
