@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Button, Container, Form, FormGroup, Input, Label, Row, } from 'reactstrap';
 
-import { operations } from 'App/data/authedUserId';
+import { operations } from 'App/data/authedUserId/redux';
 
 class LoginScene extends Component {
     state = {

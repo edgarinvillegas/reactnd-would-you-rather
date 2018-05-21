@@ -1,9 +1,9 @@
 import {combineReducers} from "redux";
 
-import usersReducer, {selectors as userSelectors} from "./users";
-import questionsReducer, {selectors as questionSelectors} from "./questions";
-import loadingReducer from './loading';
-import {loadUsersAndQuestionsThunk} from "./actions";
+import usersReducer/*, {selectors as userSelectors}*/ from "./users/redux";
+import questionsReducer/*, {selectors as questionSelectors}*/ from "./questions/redux";
+import loadingReducer from './loading/redux';
+import {loadUsersAndQuestionsThunk} from "./shared/actions";
 
 export default combineReducers({
     questions: questionsReducer,
@@ -11,11 +11,14 @@ export default combineReducers({
     loading: loadingReducer
 });
 
+/*
 export const selectors = {
     getQuestionsForUser: (state, userId) => userSelectors.getQuestionsForUser(state.users, userId),
     getQuestionById: (state, questionId) => questionSelectors.getQuestionById(state.questions, questionId),
     areQuestionsAndUsersLoading: (state) => state.loading
 };
+*/
+
 
 //These don't belong to any specific state field
 export const operations = {

@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 
-import dataReducer from './data/reducer';
-import { selectors as dataSelectors } from './data/reducer';
+import dataReducer from './data/redux';
+// import { selectors as dataSelectors } from './data/redux';
 
+/*
 function getLocalState(stateTree){
     console.log(stateTree);
     return stateTree.scenes.mainScene;
@@ -23,7 +24,7 @@ export function areQuestionsAndUsersLoading(stateTree){
     const state = getLocalState(stateTree);
     return dataSelectors.areQuestionsAndUsersLoading(state.data);
 }
-
+*/
 //Local selectors
 
 /*

@@ -26,7 +26,9 @@ class HomeScene extends Component {
                                     </NavItem>
                                 </Nav>
                                 <Switch>
+                                    {/*<Redirect from={'/home'} to={'/home/answered'} />*/}
                                     <Route path={'/home'} exact render={() => <Redirect to={'/home/answered'} />} />
+                                    {/*<Route path={'/home'} component={AnsweredScene} />*/}
                                     <Route path={'/home/answered'} component={AnsweredScene} />
                                     <Route path={'/home/unanswered'} component={UnansweredScene} />
                                 </Switch>

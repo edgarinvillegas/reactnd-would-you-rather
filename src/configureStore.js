@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 
-import appReducer from './App/reducer';
+import appReducer from './App/redux';
 
 function tempReducer(state, action){
     console.log("ROOT REDUCER, action: ", action);

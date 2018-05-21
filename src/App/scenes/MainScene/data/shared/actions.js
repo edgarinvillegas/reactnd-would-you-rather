@@ -1,5 +1,5 @@
-import {getUsersPromise} from "./users/actions";
-import {getQuestionsPromise} from "./questions/actions";
+import {getUsersPromise} from "../users/actions";
+import {getQuestionsPromise} from "../questions/actions";
 
 const LOAD_USERS_AND_QUESTIONS = 'App/MainScene/data/LOAD_USERS_AND_QUESTIONS';
 export const LOAD_USERS_AND_QUESTIONS_PENDING = LOAD_USERS_AND_QUESTIONS + '_PENDING';

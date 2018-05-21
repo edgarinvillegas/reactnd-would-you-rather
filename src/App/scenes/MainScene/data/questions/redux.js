@@ -16,6 +16,9 @@ export default function(state = initialState, action) {
     }
 }
 
-export function getQuestionById(state, questionId){
-    return state[questionId];
-}
+export const selectors = {
+    getQuestionById: function (state, questionId){
+        return state[questionId];
+    }
+};
+

@@ -1,13 +1,13 @@
 import React, { Fragment, Component } from 'react';
-import {Redirect, Route, Switch} from 'react-router-dom';
+import {Redirect, Route, Switch, withRouter} from 'react-router-dom';
 import { connect } from "react-redux";
 
 import NavBar from "./NavBar";
 import { HomeScene } from '../scenes/HomeScene';
 import { QuestionScene } from '../scenes/QuestionScene';
 import { LeaderboardScene } from '../scenes/LeaderboardScene';
-import { operations } from '../data/reducer';
-import { areQuestionsAndUsersLoading } from '../reducer';
+import { operations } from '../data/redux';
+import { selectors as loadingSelectors } from '../data/loading/redux';
 
 
 class MainScene extends Component {
@@ -20,9 +20,10 @@ class MainScene extends Component {
         return (
             <Fragment>
                 <NavBar /> {/*Always show navbar*/}
-                { loading ? '...' : (
+                { loading ? <h1>Loading....</h1> : (
                     <Switch>
                         <Route path={'/'} exact render={() => <Redirect to={'/home'} />}/>
+                        {/*<Redirect from={'/'} to={'/home'} />*/}
                         <Route path={'/home'} component={HomeScene} />
                         <Route path={'/question/:questionId'} component={QuestionScene} />
                         <Route path={'/board'} component={LeaderboardScene} />
@@ -34,10 +35,11 @@ class MainScene extends Component {
 }
 
 function mapStateToProps(stateTree){
-    console.log("loading: ", areQuestionsAndUsersLoading(stateTree));
+    //console.log("loading: ", areQuestionsAndUsersLoading(stateTree));
     return {
-        loading: areQuestionsAndUsersLoading(stateTree)
+        loading: loadingSelectors.areQuestionsAndUsersLoading(stateTree.scenes.mainScene.data.loading)
+        //loading: false
     }
 }
 
-export default connect(mapStateToProps)(MainScene);
+export default withRouter(connect(mapStateToProps)(MainScene));

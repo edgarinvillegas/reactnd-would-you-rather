@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { LoginScene } from './scenes/LoginScene';
 import { MainScene } from './scenes/MainScene';
-import { getAuthedUserId } from 'App/reducer';
+import { selectors as appSelectors } from 'App/redux';
 
 class App extends Component {
     render() {
@@ -26,7 +26,7 @@ class App extends Component {
 
 function mapStateToProps(state){
     return {
-        authedUserId: getAuthedUserId(state)
+        authedUserId: appSelectors.getAuthedUserId(state)
     };
 }
 

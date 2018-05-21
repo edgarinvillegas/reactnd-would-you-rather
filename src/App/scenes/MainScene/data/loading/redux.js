@@ -1,4 +1,4 @@
-import {LOAD_USERS_AND_QUESTIONS_PENDING, LOAD_USERS_AND_QUESTIONS_FULFILLED} from '../actions';
+import {LOAD_USERS_AND_QUESTIONS_PENDING, LOAD_USERS_AND_QUESTIONS_FULFILLED} from '../shared/actions';
 
 
 export default function (state = true, action){
@@ -10,4 +10,8 @@ export default function (state = true, action){
         default:
             return state;
     }
+};
+
+export const selectors = {
+    areQuestionsAndUsersLoading: function(state) { return state; }
 };

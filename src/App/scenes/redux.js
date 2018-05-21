@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import loginSceneReducer from './LoginScene/reducer';
-import mainSceneReducer from './MainScene/reducer';
+import loginSceneReducer from './LoginScene/redux';
+import mainSceneReducer from './MainScene/redux';
 
 export default combineReducers({
     loginScene: loginSceneReducer,

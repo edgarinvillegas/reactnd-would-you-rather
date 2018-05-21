@@ -1,5 +1,5 @@
 //This could have been named reducer1.js
-import { LOGIN } from './actions';
+import {LOGIN, loginAction} from './actions';
 
 //@reducer
 export default function(state = '', action){
@@ -11,8 +11,13 @@ export default function(state = '', action){
     }
 }
 
-//@selector
-export function getAuthedUserId (state){
-    return state;
+export const selectors = {
+    getAuthedUserId: function  (state){
+        return state;
+    }
 }
+
+export const operations = {
+    loginAction
+};
 

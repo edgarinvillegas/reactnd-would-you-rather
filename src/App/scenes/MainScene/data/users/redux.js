@@ -14,6 +14,10 @@ export default function(state = initialState, action){
     }
 };
 
-export function getQuestionsForUser(state, userId){
-    return state[userId].questions;
-}
+export const selectors = {
+    getQuestionsForUser: function (state, userId){
+        return state[userId].questions;
+    }
+};
+
+
