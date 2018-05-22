@@ -2,13 +2,12 @@ import {combineReducers} from "redux";
 
 import usersReducer/*, {selectors as userSelectors}*/ from "./users/redux";
 import questionsReducer/*, {selectors as questionSelectors}*/ from "./questions/redux";
-import loadingReducer from './loading/redux';
 import {loadUsersAndQuestionsThunk} from "./shared/actions";
 
 export default combineReducers({
     questions: questionsReducer,
     users: usersReducer,
-    loading: loadingReducer
+    // loading: loadingReducer
 });
 
 /*
@@ -23,6 +22,20 @@ export const selectors = {
 //These don't belong to any specific state field
 export const operations = {
     loadUsersAndQuestionsThunk
+};
+
+//These didn't belong to any children.
+export const selectors = {
+    /**
+     *
+     * @param state
+     * @param userId
+     * @param questionId
+     * @returns {string} 'option1', 'option2' or ''
+     */
+    getAnsweredOption: function(state, userId, questionId){
+        return state.users[userId].answers[questionId] || '';
+    }
 }
 
 

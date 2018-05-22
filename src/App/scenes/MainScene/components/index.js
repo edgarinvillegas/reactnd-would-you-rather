@@ -7,7 +7,7 @@ import { HomeScene } from '../scenes/HomeScene';
 import { QuestionScene } from '../scenes/QuestionScene';
 import { LeaderboardScene } from '../scenes/LeaderboardScene';
 import { operations } from '../data/redux';
-import { selectors as loadingSelectors } from '../data/loading/redux';
+import { selectors as loadingSelectors } from '../redux';
 
 
 class MainScene extends Component {
@@ -37,7 +37,7 @@ class MainScene extends Component {
 function mapStateToProps(stateTree){
     //console.log("loading: ", areQuestionsAndUsersLoading(stateTree));
     return {
-        loading: loadingSelectors.areQuestionsAndUsersLoading(stateTree.scenes.mainScene.data.loading)
+        loading: loadingSelectors.areQuestionsAndUsersLoading(stateTree.scenes.mainScene.loading)
         //loading: false
     }
 }
