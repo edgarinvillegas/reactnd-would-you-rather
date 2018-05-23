@@ -12,10 +12,13 @@ export default combineReducers({
 // export const getAuthedUserId = state => dataSelectors.getAuthedUserId(state.data);
 
 
+
+
 export const selectors = {
-    getQuestionsForAuthedUser: function(stateTree){
-        return usersSelectors.getQuestionsForUser(stateTree.scenes.mainScene.data.users, stateTree.data.authedUserId);      //selector shouldn't know about state non-straightforward structure
+    getAnswersForAuthedUser: function(stateTree){
+        return usersSelectors.getAnswersForUser(stateTree.scenes.mainScene.data.users, stateTree.data.authedUserId);      //selector shouldn't know about state non-straightforward structure
     },
+
     getAuthedUserId: stateTree => authedUserIdSelectors.getAuthedUserId(stateTree.data.authedUserId)
 };
 

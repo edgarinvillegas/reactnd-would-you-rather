@@ -1,9 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-export default () => {
-    return (
-        <Fragment>
-            Unanswered Scene!
-        </Fragment>
-    );
+export default function(){
+    return <h1>Unanswered</h1>
 }

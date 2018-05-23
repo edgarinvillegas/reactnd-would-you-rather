@@ -6,30 +6,25 @@ import { selectors as appSelectors } from 'App/redux';
 import AnsweredQuestionListItem from "./AnsweredQuestionListItem";
 
 
-
-
 class AnsweredScene extends Component{
     render() {
-        const { questionIds } = this.props;
+        const { answers } = this.props;
+        const questionIds = Object.keys(answers);
         return (
             <div className="tab-content mt-2">
                 <div className="tab-pane fade show active" id="tabone" role="tabpanel">
                     <h1 className="">I would rather...</h1>
-                    {JSON.stringify(this.props.questionIds)}
                     <div className="col-md-12">
                         <ListGroup>
                             {questionIds.map( questionId => (
-                                <AnsweredQuestionListItem key={questionId} questionId={questionId} />
+                                <AnsweredQuestionListItem
+                                    key={questionId}
+                                    questionId={questionId}
+                                    answer={answers[questionId]}
+                                />
                             ))}
                         </ListGroup>
                     </div>
-                </div>
-                <div className="tab-pane fade" id="tabtwo" role="tabpanel">
-                    <p className="">Tab pane two. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div className="tab-pane fade" id="tabthree" role="tabpanel">
-                    <p className="">Tab pane three. Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit.</p>
                 </div>
             </div>
         );
@@ -38,7 +33,7 @@ class AnsweredScene extends Component{
 
 function mapStateToProps(state){
     return {
-        questionIds: appSelectors.getQuestionsForAuthedUser(state)
+        answers: appSelectors.getAnswersForAuthedUser(state)
     }
 }
 

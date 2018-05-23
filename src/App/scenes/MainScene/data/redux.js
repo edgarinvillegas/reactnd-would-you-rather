@@ -12,7 +12,7 @@ export default combineReducers({
 
 /*
 export const selectors = {
-    getQuestionsForUser: (state, userId) => userSelectors.getQuestionsForUser(state.users, userId),
+    getAnswersForUser: (state, userId) => userSelectors.getAnswersForUser(state.users, userId),
     getQuestionById: (state, questionId) => questionSelectors.getQuestionById(state.questions, questionId),
     areQuestionsAndUsersLoading: (state) => state.loading
 };

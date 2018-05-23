@@ -16,9 +16,9 @@ export function getQuestionById(stateTree, questionId){
 }
 
 //TODO: Lift to global reducer
-export function getQuestionsForAuthedUser(stateTree){
+export function getAnswersForAuthedUser(stateTree){
     const state = getLocalState(stateTree);
-    return dataSelectors.getQuestionsForUser(state.data, stateTree.data.authedUserId);      //selector shouldn't know about state non-straightforward structure
+    return dataSelectors.getAnswersForUser(state.data, stateTree.data.authedUserId);      //selector shouldn't know about state non-straightforward structure
 }
 
 export function areQuestionsAndUsersLoading(stateTree){
@@ -33,7 +33,7 @@ export function getAllQuestions(state) {
     return Object.keys(state.questions);
 }
 
-export function getQuestionsForUser(state, userId){
+export function getAnswersForUser(state, userId){
     return state.users[userId].questions;
 }
 export function getQuestionById(state, questionId){
