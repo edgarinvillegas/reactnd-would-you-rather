@@ -19,6 +19,12 @@ export default function(state = initialState, action) {
 export const selectors = {
     getQuestionById: function (state, questionId){
         return state[questionId];
+    },
+    getUnansweredQuestionsForUser: function(state, userId) {
+        return Object.keys(state).filter( questionId => {
+            const question = state[questionId];
+            return !question.optionOne.votes.concat(question.optionTwo.votes).includes(userId);
+        })
     }
 };
 

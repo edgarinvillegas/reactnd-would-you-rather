@@ -26,16 +26,7 @@ export const operations = {
 
 //These didn't belong to any children.
 export const selectors = {
-    /**
-     *
-     * @param state
-     * @param userId
-     * @param questionId
-     * @returns {string} 'option1', 'option2' or ''
-     */
-    getAnsweredOption: function(state, userId, questionId){
-        return state.users[userId].answers[questionId] || '';
-    }
+
 }
 
 
