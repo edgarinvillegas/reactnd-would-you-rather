@@ -4,7 +4,7 @@ import { ListGroup, ListGroupItem } from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 import { selectors as questionSelectors } from 'App/scenes/MainScene/data/questions/redux';
-import '../../../shared/styles.css';
+import '../../../common/styles.css';
 
 function UnansweredQuestionListItem({ questionId, option1Text, option2Text }){
     return (

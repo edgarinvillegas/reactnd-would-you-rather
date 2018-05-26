@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 import { selectors as questionSelectors } from 'App/scenes/MainScene/data/questions/redux';
 import { AnsweredQuestion } from 'App/scenes/MainScene';
-import '../../../shared/styles.css';
+import '../../../common/styles.css';
 
 
 function AnsweredQuestionListItem({ questionId, question, answer }){

@@ -8,21 +8,21 @@ export default () => (
               <a className="navbar-brand" href="#">Would you rather?</a>
               <Button data-toggle="collapse" data-target="#navbar2SupportedContent"
                       className="navbar-toggler navbar-toggler-right">
-                  <span className="navbar-toggler-icon"></span>
+                  <span className="navbar-toggler-icon"/>
               </Button>
               <Collapse id="navbar2SupportedContent" className="navbar-collapse text-center justify-content-end">
                   <ul className="navbar-nav">
                       <li className="nav-item text-left text-nowrap">
                           <a className="nav-link active" href="#" contentEditable="true">
-                              <i className="fa d-inline fa-lg fa-home"></i> Home</a>
+                              <i className="fa d-inline fa-lg fa-home"/> Home</a>
                       </li>
                       <li className="nav-item text-left text-nowrap">
                           <a className="nav-link" href="#">
-                              <i className="fa d-inline fa-lg fa-list-ol"></i> Leaderboard</a>
+                              <i className="fa d-inline fa-lg fa-list-ol"/> Leaderboard</a>
                       </li>
                       <li className="nav-item text-left text-nowrap">
                           <a className="nav-link" href="#">
-                              <i className="fa fa-file"></i> New Question</a>
+                              <i className="fa fa-file"/> New Question</a>
                       </li>
                       <li className="nav-item text-left text-nowrap">
                           <a className="nav-link" href="#">
