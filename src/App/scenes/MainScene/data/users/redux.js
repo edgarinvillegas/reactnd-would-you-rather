@@ -17,6 +17,9 @@ export default function(state = initialState, action){
 export const selectors = {
     getAnswersForUser: function (state, userId){
         return state[userId].answers;
+    },
+    getUserById: function (state, userId) {
+        return state[userId];
     }
 };
 

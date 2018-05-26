@@ -1,34 +1,9 @@
 import React, { Fragment } from 'react';
-import { Badge, Button, Collapse, Container, Form, FormGroup, Input, Label, ListGroup, ListGroupItem, Row, } from 'reactstrap';
+import { Badge, Button, Container, Form, FormGroup, Input, Label, ListGroup, ListGroupItem, Row, } from 'reactstrap';
 
 export default () => (
   <Fragment>
-      <div className="py-5">
-          <Container>
-              <Row className="border">
-                  <div className="col-md-2 d-flex align-items-center justify-content-end col-3"> Asked By:
-                      <h4 className="display-4">#1</h4>
-                  </div>
-                  <div className="d-flex align-items-center col-md-6 col-6">
-                      <div className="d-inline-flex p-2">
-                          <img className="rounded-circle"
-                               src="https://www.gravatar.com/avatar/de057083353e7435174218bcaa3e191a?s=64&amp;d=identicon&amp;r=PG"
-                               width="64px" height="64px" />
-                              <div className="px-3 d-flex align-items-center">
-                                  <h3 className="">John Doe</h3>
-                              </div>
-                      </div>
-                  </div>
-                  <div className="col-md-4 text-right d-flex flex-column justify-content-center hidden col-3">
-                      <div>
-                          <div className="text-info  text-nowrap">Asked: 25</div>
-                          <div className="text-info  text-nowrap">Answered: 4</div>
-                          <div className="text-primary  text-nowrap"> 29 points</div>
-                      </div>
-                  </div>
-              </Row>
-          </Container>
-      </div>
+
       <div className="py-5">
           <Container>
               <Row>
@@ -38,7 +13,7 @@ export default () => (
                               <div> Become a super hero</div>
                               <div>
                                   <Badge pill className="badge-dark">0 votes (0%)</Badge>
-                                  <span className="fa fa-check"></span>
+                                  <span className="fa fa-check" />
                                   <a className="btn btn-primary" href="#"> Vote </a>
                               </div>
                           </ListGroupItem>
@@ -46,7 +21,7 @@ export default () => (
                               <div> Become a super villian</div>
                               <div>
                                   <Badge pill className="badge-dark">2 votes (100%)</Badge>
-                                  <span className="fa fa-times"></span>
+                                  <span className="fa fa-times" />
                                   <a className="btn btn-primary" href="#">Vote </a>
                               </div>
                           </ListGroupItem>
@@ -83,10 +58,10 @@ export default () => (
                       <Form>
                           <FormGroup>
                               <Label>Option 1</Label>
-                              <Input type="email" placeholder="Enter question 1 here"></Input> </FormGroup>
+                              <Input type="email" placeholder="Enter question 1 here" /> </FormGroup>
                           <FormGroup>
                               <Label>Option 2</Label>
-                              <Input type="email" placeholder="Enter question 2 here"></Input> </FormGroup>
+                              <Input type="email" placeholder="Enter question 2 here" /> </FormGroup>
                           <Button color="primary">Submit</Button>
                       </Form>
                   </div>

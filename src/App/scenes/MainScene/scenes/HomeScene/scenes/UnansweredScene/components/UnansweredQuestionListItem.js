@@ -9,7 +9,7 @@ import '../../../shared/styles.css';
 function UnansweredQuestionListItem({ questionId, option1Text, option2Text }){
     return (
         <ListGroupItem>
-            <Link to={`/questions/${questionId}`} className={'link-no-underline'}>
+            <Link to={`/question/${questionId}`} className={'link-no-underline'}>
                 <ListGroup>
                     <ListGroupItem color={'info'} className="d-flex justify-content-between align-items-center">
                         <div> {option1Text} </div>
@@ -18,11 +18,11 @@ function UnansweredQuestionListItem({ questionId, option1Text, option2Text }){
                         <div> {option2Text} </div>
                     </ListGroupItem>
                 </ListGroup>
-                <div className="text-right text-info"> {questionId} </div>  {/*TODO: remove */}
+                <div className="text-right text-info"> Vote </div>  {/*TODO: remove */}
             </Link>
         </ListGroupItem>
     );
-};
+}
 
 function mapStateToProps(state, ownProps){
     const mainSceneDataState = state.scenes.mainScene.data;
