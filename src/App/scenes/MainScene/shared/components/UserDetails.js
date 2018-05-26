@@ -2,14 +2,19 @@ import React from 'react';
 import { Container, Row } from 'reactstrap';
 import { connect } from 'react-redux';
 
-import { selectors } from 'App/scenes/MainScene/data/users/redux';
+import { selectors as userSelectors } from 'App/scenes/MainScene/data/users/redux';
 
 const UserDetails = ({rank, name, avatarURL, askedCount, answeredCount, points}) => {
     return (
         <Container>
             <Row className="border">
-                <div className="col-md-2 d-flex align-items-center justify-content-end col-3"> Asked By:
-                    <h4 className="display-4">{rank}</h4>
+                <div className="col-md-2 d-flex align-items-center justify-content-end col-3">
+                    {rank ? (
+                        <h4 className="display-4">{rank}</h4>
+                    ) :
+                        'Asked By:'
+                    }
+
                 </div>
                 <div className="d-flex align-items-center col-md-6 col-6">
                     <div className="d-inline-flex p-2">
@@ -23,9 +28,9 @@ const UserDetails = ({rank, name, avatarURL, askedCount, answeredCount, points})
                 </div>
                 <div className="col-md-4 text-right d-flex flex-column justify-content-center hidden col-3">
                     <div>
-                        <div className="text-info  text-nowrap">Asked: 25</div>
-                        <div className="text-info  text-nowrap">Answered: 4</div>
-                        <div className="text-primary  text-nowrap"> 29 points</div>
+                        <div className="text-info  text-nowrap">Asked: {askedCount}</div>
+                        <div className="text-info  text-nowrap">Answered: {answeredCount}</div>
+                        <div className="text-primary  text-nowrap"> {points} points</div>
                     </div>
                 </div>
             </Row>
@@ -34,20 +39,22 @@ const UserDetails = ({rank, name, avatarURL, askedCount, answeredCount, points})
 };
 
 
-function mapStateToProps({ scenes: { mainScene: { data: { users } } } }, { userId }){
+function mapStateToProps({ scenes: { mainScene: { data: { users } } } }, { userId, showRank }){
     //console.log('state: ', state);
     //const users = state.scenes.mainScene.data.users;
     //console.log('users: ', users);
     //return {};
-    const user = selectors.getUserById(users, 'tylermcginnis');
+    console.log(userSelectors);
+    console.log('userId:', userId);
+    const user = userSelectors.getUserById(users, userId);
     return {
-        rank: 3,
+        rank: 0,
         name: user.name,
         avatarURL: user.avatarURL,
-        askedCount: 10,
-        answeredCount: 25,
-        points: 35
-    }
+        askedCount: userSelectors.getAuthoredQuestionsCount(users, userId),
+        answeredCount: userSelectors.getAnswersCount(users, userId),
+        points: userSelectors.getPoints(users, userId)
+    };
 }
 
 export default connect(mapStateToProps)(UserDetails);
