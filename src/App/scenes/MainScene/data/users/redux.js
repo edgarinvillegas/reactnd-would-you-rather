@@ -1,4 +1,5 @@
 import {LOAD_USERS_FULFILLED} from "./actions";
+import { SAVE_ANSWER_PENDING } from '../shared/actions';
 
 
 /**
@@ -9,10 +10,37 @@ export default function(state = initialState, action){
     switch(action.type) {
         case LOAD_USERS_FULFILLED:
             return action.payload;
+        case SAVE_ANSWER_PENDING:
+            const { userId } = action.payload;
+            return {
+                ...state,
+                [userId]: userReducer(state[userId], action)
+            }
         default:
             return state;
     }
 };
+
+/**
+ *
+ * @param state user object
+ */
+function userReducer(state = {}, action){
+    switch(action.type){
+        case SAVE_ANSWER_PENDING:
+            const { questionId, answer } = action.payload;
+            const answers = state.answers;
+            return {
+                ...state,
+                answers: {
+                    ...answers,
+                    [questionId]: answer
+                }
+            };
+        default:
+            return state;
+    }
+}
 
 function getAuthoredQuestionsCount(state, userId) {
     const user = state[userId];

@@ -2,7 +2,7 @@ import {combineReducers} from "redux";
 
 import usersReducer/*, {selectors as userSelectors}*/ from "./users/redux";
 import questionsReducer/*, {selectors as questionSelectors}*/ from "./questions/redux";
-import {loadUsersAndQuestionsThunk} from "./shared/actions";
+import { loadUsersAndQuestionsThunk, saveAnswerPromiseAction } from "./shared/actions";
 
 export default combineReducers({
     questions: questionsReducer,
@@ -21,7 +21,8 @@ export const selectors = {
 
 //These don't belong to any specific state field
 export const operations = {
-    loadUsersAndQuestionsThunk
+    loadUsersAndQuestionsThunk,
+    saveAnswerPromiseAction
 };
 
 //These didn't belong to any children.

@@ -1,4 +1,5 @@
 import {LOAD_QUESTIONS_FULFILLED} from "./actions";
+import { SAVE_ANSWER_PENDING } from '../shared/actions';
 
 /*
 Table of questions
@@ -11,6 +12,10 @@ export default function(state = initialState, action) {
         case LOAD_QUESTIONS_FULFILLED:
             //console.log('LOAD_QUESTIONS_FULFILLED');
             return action.payload;
+        case SAVE_ANSWER_PENDING:
+            const { questionId } = action.payload;
+            return {...state, [questionId]: questionReducer(state[questionId], action) }
+            return state;
         default:
             return state;
     }
@@ -36,4 +41,23 @@ export const selectors = {
         };
     }
 };
+
+//state here is a question object
+function questionReducer(state = {}, action){
+    switch(action.type) {
+        case SAVE_ANSWER_PENDING:
+            const { userId, answer } = action.payload;
+            const answeredOption = state[answer];
+            return {
+                ...state,
+                [answer]: {
+                    ...answeredOption,
+                    votes: answeredOption.votes.concat([userId])
+                }
+            };
+        default:
+            return state;
+    }
+}
+
 

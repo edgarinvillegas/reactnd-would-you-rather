@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { ListGroup } from "reactstrap";
 
 import { selectors as appSelectors } from 'App/redux';
 import UnansweredQuestionListItem from "./UnansweredQuestionListItem";
