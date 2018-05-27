@@ -24,8 +24,13 @@ function getAuthedUserId(stateTree) {
     return authedUserIdSelectors.getAuthedUserId(stateTree.data.authedUserId);
 };
 
+function getAnswerForAuthedUser(stateTree, questionId) {
+    return getAnswersForAuthedUser(stateTree)[questionId];
+}
+
 export const selectors = {
     getAnswersForAuthedUser,
+    getAnswerForAuthedUser,
     getUnansweredQuestionsForAuthedUser,
     getAuthedUserId
 };

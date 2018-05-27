@@ -20,7 +20,9 @@ const UserDetails = ({rank, name, avatarURL, askedCount, answeredCount, points})
                     <div className="d-inline-flex p-2">
                         <img className="rounded-circle"
                              src="https://www.gravatar.com/avatar/de057083353e7435174218bcaa3e191a?s=64&amp;d=identicon&amp;r=PG"
-                             width="64px" height="64px" />
+                             width="64px" height="64px"
+                             alt={name}
+                        />
                         <div className="px-3 d-flex align-items-center">
                             <h3 className="">{name}</h3>
                         </div>

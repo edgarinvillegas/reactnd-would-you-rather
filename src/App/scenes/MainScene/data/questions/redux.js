@@ -25,6 +25,15 @@ export const selectors = {
             const question = state[questionId];
             return !question.optionOne.votes.concat(question.optionTwo.votes).includes(userId);
         })
+    },
+    getQuestionPercentages: function(question){
+        const optionOneVotes = question.optionOne.votes.length;
+        const optionTwoVotes = question.optionTwo.votes.length;
+        const total = optionOneVotes + optionTwoVotes;
+        return {
+            optionOne: total ? (optionOneVotes/total * 100).toFixed() : 0,
+            optionTwo: total ? (optionTwoVotes/total * 100).toFixed() : 0
+        };
     }
 };
 

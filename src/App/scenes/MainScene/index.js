@@ -1,5 +1,5 @@
 import MainScene from './components';
-import AnsweredQuestion from './common/components/AnsweredQuestion';
 import UserDetails from './common/components/UserDetails';
+import QuestionCard from './common/components/QuestionCard';
 
-export { MainScene, AnsweredQuestion, UserDetails };
+export { MainScene, UserDetails, QuestionCard };
