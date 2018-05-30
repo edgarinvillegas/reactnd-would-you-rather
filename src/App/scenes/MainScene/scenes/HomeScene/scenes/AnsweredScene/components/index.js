@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 
 import { selectors as appSelectors } from 'App/redux';
 import AnsweredQuestionListItem from "./AnsweredQuestionListItem";
 import { QuestionsTab } from 'App/scenes/MainScene/scenes/HomeScene';
+
 
 class AnsweredScene extends Component{
     render() {
@@ -13,6 +15,16 @@ class AnsweredScene extends Component{
             <QuestionsTab
                 title={'I would rather...'}
                 tabId={'tabone'}
+                Message={() => (
+                    <Fragment>
+                        {questionIds.length === 0 && (
+                            <p>
+                                You haven't answered any question yet!
+                                You might want to <Link to={'/home/unanswered'} > answer some. </Link>
+                            </p>
+                        )}
+                    </Fragment>
+                )}
             >
                 {questionIds.map( questionId => (
                     <AnsweredQuestionListItem
