@@ -6,23 +6,6 @@ import { connect } from 'react-redux';
 import QuestionOption from './QuestionOption';
 import { selectors as questionSelectors } from 'App/scenes/MainScene/data/questions/redux';
 
-
-/*
-{
-    id: '8xf0y6ziyjabvozdd253nd',
-    author: 'sarahedo',
-    timestamp: 1467166872634,
-    optionOne: {
-      votes: ['sarahedo'],
-      text: 'have horrible short term memory',
-    },
-    optionTwo: {
-      votes: [],
-      text: 'have horrible long term memory'
-    }
-  }
-*/
-
 function QuestionCard({question, showVotes = false, answer, onVote }) {
     const percentages = questionSelectors.getQuestionPercentages(question);
     const getBadgeText = (option) =>  {

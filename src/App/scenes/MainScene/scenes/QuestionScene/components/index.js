@@ -7,6 +7,7 @@ import { selectors as questionSelectors } from 'App/scenes/MainScene/data/questi
 import QuestionCard from '../../../common/components/QuestionCard';
 import { selectors as appSelectors } from 'App/redux';
 import { operations } from 'App/scenes/MainScene/data/redux';
+import VotesBar from './VotesBar';
 
 const QuestionScene = ({ dispatch, questionId, authorId, answer, authedUserId }) => {
     const onVote = (option) => {
@@ -29,18 +30,13 @@ const QuestionScene = ({ dispatch, questionId, authorId, answer, authedUserId })
                             />
                         </div>
                     </Row>
-                    <Row>
-                        <div className="col-md-12">
-                            <div className="progress">
-                                <div className="progress-bar bg-success" role="progressbar" style={{width: '15%'}}
-                                     aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"> 15%
-                                </div>
-                                <div className="progress-bar bg-danger" role="progressbar" style={{width: '85%'}}
-                                     aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"> 85%
-                                </div>
+                    {!!answer && (
+                        <Row>
+                            <div className="col-md-12">
+                                <VotesBar questionId={questionId} answer={answer} />
                             </div>
-                        </div>
-                    </Row>
+                        </Row>
+                    )}
                 </Container>
             </div>
         </Fragment>

@@ -6,7 +6,7 @@ Table of questions
 */
 
 
-const initialState = {}
+const initialState = {};
 export default function(state = initialState, action) {
     switch(action.type) {
         case LOAD_QUESTIONS_FULFILLED:
@@ -14,8 +14,7 @@ export default function(state = initialState, action) {
             return action.payload;
         case SAVE_ANSWER_PENDING:
             const { questionId } = action.payload;
-            return {...state, [questionId]: questionReducer(state[questionId], action) }
-            return state;
+            return {...state, [questionId]: questionReducer(state[questionId], action) };
         default:
             return state;
     }
