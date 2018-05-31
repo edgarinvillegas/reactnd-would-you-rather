@@ -8,6 +8,7 @@ import { QuestionScene } from '../scenes/QuestionScene';
 import { LeaderboardScene } from '../scenes/LeaderboardScene';
 import { operations } from '../data/redux';
 import { selectors as loadingSelectors } from '../redux';
+import NewQuestionScene from '../scenes/NewQuestionScene/components';
 
 
 class MainScene extends Component {
@@ -27,6 +28,7 @@ class MainScene extends Component {
                         <Route path={'/home'} component={HomeScene} />
                         <Route path={'/question/:questionId'} component={QuestionScene} />
                         <Route path={'/board'} component={LeaderboardScene} />
+                        <Route path={'/add'} component={NewQuestionScene} />
                     </Switch>
                 )}
             </Fragment>
