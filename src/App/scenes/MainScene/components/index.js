@@ -8,7 +8,7 @@ import { QuestionScene } from '../scenes/QuestionScene';
 import { LeaderboardScene } from '../scenes/LeaderboardScene';
 import { operations } from '../data/redux';
 import { selectors as loadingSelectors } from '../redux';
-import NewQuestionScene from '../scenes/NewQuestionScene/components';
+import { NewQuestionScene } from '../scenes/NewQuestionScene';
 
 
 class MainScene extends Component {

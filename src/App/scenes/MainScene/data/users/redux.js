@@ -1,5 +1,5 @@
 import {LOAD_USERS_FULFILLED} from "./actions";
-import { SAVE_ANSWER_PENDING } from '../shared/actions';
+import { SAVE_ANSWER_PENDING, SAVE_QUESTION_FULFILLED } from '../shared/actions';
 
 
 /**
@@ -15,6 +15,12 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 [userId]: userReducer(state[userId], action)
+            };
+        case SAVE_QUESTION_FULFILLED:
+            const { author } = action.payload;  // TODO: consider renaming to userId
+            return {
+                ...state,
+                [author]: userReducer(state[author], action)
             }
         default:
             return state;
@@ -36,6 +42,12 @@ function userReducer(state = {}, action){
                     ...answers,
                     [questionId]: answer
                 }
+            };
+        case SAVE_QUESTION_FULFILLED:
+            const { author } = action.payload;
+            return {
+                ...state,
+                questions: state.questions.concat(author)
             };
         default:
             return state;

@@ -1,5 +1,5 @@
 import {LOAD_QUESTIONS_FULFILLED} from "./actions";
-import { SAVE_ANSWER_PENDING } from '../shared/actions';
+import { SAVE_ANSWER_PENDING, SAVE_QUESTION_FULFILLED } from '../shared/actions';
 
 /*
 Table of questions
@@ -15,6 +15,10 @@ export default function(state = initialState, action) {
         case SAVE_ANSWER_PENDING:
             const { questionId } = action.payload;
             return {...state, [questionId]: questionReducer(state[questionId], action) };
+        case SAVE_QUESTION_FULFILLED:
+            const question = action.payload;
+            console.log('questionsReducer/SAVE_QUESTION_FULFILLED payload :', action.payload);
+            return {...state, [question.id]: question }
         default:
             return state;
     }
