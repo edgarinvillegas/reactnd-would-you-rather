@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {Button, Collapse, Container, Nav, NavItem, NavLink as ReactStrapNavLink} from 'reactstrap';
 import {Link, NavLink} from "react-router-dom";
+
+import { selectors as appSelectors } from 'App/redux';
+import { selectors as userSelectors } from 'App/scenes/MainScene/data/users/redux';
+import { selectors } from '../redux';
+
 
 class NavBar extends Component {
     state = {
@@ -14,7 +20,7 @@ class NavBar extends Component {
     };
 
     render() {
-        console.log('collapse? ', this.state.collapsed);
+        const { avatarURL, username } = this.props;
         return (
             <nav className="navbar navbar-expand-md bg-primary navbar-dark">
                 <Container>
@@ -47,10 +53,10 @@ class NavBar extends Component {
                                 <a className="nav-link">
                                     <img className="img-fluid rounded-circle px-0"
                                          alt="Avatar"
-                                         src="https://www.gravatar.com/avatar/de057083353e7435174218bcaa3e191a?s=64&amp;d=identicon&amp;r=PG"
+                                         src={avatarURL}
                                          width="32px" height="32px"
                                     />
-                                    Welcome, Sarah
+                                    Welcome, {username}
                                 </a>
                             </NavItem>
                         </Nav>
@@ -59,6 +65,19 @@ class NavBar extends Component {
             </nav>
         );
     }
-};
+}
 
-export default NavBar;
+export default connect(state => {
+    if(selectors.areQuestionsAndUsersLoading(state.scenes.mainScene.loading)){
+        return {
+            avatarURL: '...',
+            username: '...'
+        };
+    }
+    const authedUserId = appSelectors.getAuthedUserId(state);
+    const user = userSelectors.getUserById(state.scenes.mainScene.data.users, authedUserId);
+    return {
+        avatarURL: user.avatarURL,
+        username: user.name
+    }
+})(NavBar);

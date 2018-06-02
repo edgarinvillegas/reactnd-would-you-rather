@@ -6,6 +6,7 @@ const LOAD_USERS_AND_QUESTIONS = 'App/MainScene/data/LOAD_USERS_AND_QUESTIONS';
 export const LOAD_USERS_AND_QUESTIONS_PENDING = LOAD_USERS_AND_QUESTIONS + '_PENDING';
 export const LOAD_USERS_AND_QUESTIONS_FULFILLED = LOAD_USERS_AND_QUESTIONS + '_FULFILLED';
 
+
 export function loadUsersAndQuestionsThunk(){
     return dispatch => {
         dispatch({
@@ -30,7 +31,7 @@ export function saveAnswerPromiseAction(userId, questionId, answer){
             data: {userId, questionId, answer}
         }
     };
-};
+}
 
 const SAVE_QUESTION = 'App/MainScene/data/SAVE_QUESTION';
 export const SAVE_QUESTION_FULFILLED = SAVE_QUESTION + '_FULFILLED';
@@ -45,7 +46,7 @@ export function saveQuestionPromiseAction( optionOne, optionTwo, userId ){
             })
         }
     };
-};
+}
 
 /*
 function loadUsersAndQuestionsOperation(){

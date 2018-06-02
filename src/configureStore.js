@@ -1,14 +1,11 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 
 import appReducer from './App/redux';
 
-function tempReducer(state, action){
-    console.log("ROOT REDUCER, action: ", action);
-    return appReducer(state, action);
-}
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export function configureStore(){
-    return createStore(tempReducer, applyMiddleware(thunk, promiseMiddleware()) );
+    return createStore(appReducer, composeEnhancers(applyMiddleware(thunk, promiseMiddleware())) );
 }

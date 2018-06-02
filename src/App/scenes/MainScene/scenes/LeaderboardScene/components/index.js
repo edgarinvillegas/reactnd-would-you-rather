@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
 import { connect } from 'react-redux';
+import { Container, Row } from 'reactstrap';
 
 import { selectors } from 'App/scenes/MainScene/data/users/redux';
-import { Container, ListGroup, ListGroupItem, Row } from 'reactstrap';
 import UserDetails from 'App/scenes/MainScene/common/components/UserDetails';
 
 function LeaderboardScene({ userIds }) {
@@ -12,7 +12,7 @@ function LeaderboardScene({ userIds }) {
                 <Container>
                     <Row>
                         <div className="col-md-12">
-                            <h1 className="">Leaderboard</h1>
+                            <h1 className="pb-4">Leaderboard</h1>
                         </div>
                     </Row>
                     <Row>

@@ -5,7 +5,7 @@ const QuestionsTab = ({ title, tabId, children, Message }) => {
     return (
         <div className="tab-content mt-2">
             <div className="tab-pane fade show active" id={tabId} role="tabpanel">
-                <h1 className="">{title}</h1>
+                <h1 className="pb-3">{title}</h1>
                 <Message />
                 <div className="col-md-12">
                     <ListGroup>

@@ -19,7 +19,7 @@ const UserDetails = ({rank, name, avatarURL, askedCount, answeredCount, points})
                 <div className="d-flex align-items-center col-md-6 col-6">
                     <div className="d-inline-flex p-2">
                         <img className="rounded-circle"
-                             src="https://www.gravatar.com/avatar/de057083353e7435174218bcaa3e191a?s=64&amp;d=identicon&amp;r=PG"
+                             src={avatarURL}
                              width="64px" height="64px"
                              alt={name}
                         />

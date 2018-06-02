@@ -49,7 +49,7 @@ class NewQuestionScenePres extends Component {
                 <Container>
                     <Row>
                         <div className="col-md-12">
-                            <h1 className="">Would you rather...?</h1>
+                            <h1 className="pb-3">Would you rather...?</h1>
                         </div>
                     </Row>
                     <Row>
@@ -83,6 +83,6 @@ class NewQuestionScenePres extends Component {
             </div>
         );
     }
-};
+}
 
 export default NewQuestionScenePres;
