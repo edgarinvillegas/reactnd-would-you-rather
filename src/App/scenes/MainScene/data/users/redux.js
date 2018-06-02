@@ -62,6 +62,9 @@ function getAnswersCount(state, userId) {
     const user = state[userId];
     return Object.keys(user.answers).length;
 }
+function getPoints (state, userId) {
+    return getAuthoredQuestionsCount(state, userId) + getAnswersCount(state, userId);
+}
 
 export const selectors = {
     getAnswersForUser: function (state, userId){
@@ -70,14 +73,12 @@ export const selectors = {
     getUserById: function (state, userId) {
         return state[userId];
     },
-    getTopUsers: function (state){
-        return Object.keys(state);
+    getSortedUsers: function (state){
+        return Object.keys(state).sort( (uid1, uid2) => getPoints(state, uid2) - getPoints(state, uid1) );
     },
     getAuthoredQuestionsCount,
     getAnswersCount,
-    getPoints: function(state, userId) {
-        return getAuthoredQuestionsCount(state, userId) + getAnswersCount(state, userId);
-    }
+    getPoints
 };
 
 

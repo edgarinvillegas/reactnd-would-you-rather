@@ -10,7 +10,7 @@ const UserDetails = ({rank, name, avatarURL, askedCount, answeredCount, points})
             <Row className="border">
                 <div className="col-md-2 d-flex align-items-center justify-content-end col-3">
                     {rank ? (
-                        <h4 className="display-4">{rank}</h4>
+                        <h4 className="display-4">#{rank}</h4>
                     ) :
                         'Asked By:'
                     }
@@ -41,7 +41,7 @@ const UserDetails = ({rank, name, avatarURL, askedCount, answeredCount, points})
 };
 
 
-function mapStateToProps({ scenes: { mainScene: { data: { users } } } }, { userId, showRank }){
+function mapStateToProps({ scenes: { mainScene: { data: { users } } } }, { userId }){
     //console.log('state: ', state);
     //const users = state.scenes.mainScene.data.users;
     //console.log('users: ', users);
@@ -50,7 +50,7 @@ function mapStateToProps({ scenes: { mainScene: { data: { users } } } }, { userI
     console.log('userId:', userId);
     const user = userSelectors.getUserById(users, userId);
     return {
-        rank: 0,
+        // rank: showRank ? 1 : 0,
         name: user.name,
         avatarURL: user.avatarURL,
         askedCount: userSelectors.getAuthoredQuestionsCount(users, userId),
