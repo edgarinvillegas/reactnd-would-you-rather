@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { selectors as appSelectors } from 'App/redux';
 import UnansweredQuestionListItem from "./UnansweredQuestionListItem";
 import { QuestionsTab } from 'App/scenes/MainScene/scenes/HomeScene';
+import { selectors as questionSelectors } from '../../../../../data/questions/redux';
 
 
 class UnansweredScene extends Component{
@@ -37,8 +38,9 @@ class UnansweredScene extends Component{
 }
 
 function mapStateToProps(state){
+    const questionIds = appSelectors.getUnansweredQuestionsForAuthedUser(state);
     return {
-        questionIds: appSelectors.getUnansweredQuestionsForAuthedUser(state)
+        questionIds: questionSelectors.getSortedQuestionsByTimestamp(state.scenes.mainScene.data.questions, questionIds)
     }
 }
 

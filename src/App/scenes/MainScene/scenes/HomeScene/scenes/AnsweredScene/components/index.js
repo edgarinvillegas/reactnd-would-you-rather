@@ -3,14 +3,14 @@ import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 
 import { selectors as appSelectors } from 'App/redux';
+import { selectors as questionSelectors } from 'App/scenes/MainScene/data/questions/redux';
 import AnsweredQuestionListItem from "./AnsweredQuestionListItem";
 import { QuestionsTab } from 'App/scenes/MainScene/scenes/HomeScene';
 
 
 class AnsweredScene extends Component{
     render() {
-        const { answers } = this.props;
-        const questionIds = Object.keys(answers);
+        const { answers, sortedQuestionIds: questionIds } = this.props;
         return (
             <QuestionsTab
                 title={'I would rather...'}
@@ -39,8 +39,10 @@ class AnsweredScene extends Component{
 }
 
 function mapStateToProps(state){
+    const answers = appSelectors.getAnswersForAuthedUser(state);
     return {
-        answers: appSelectors.getAnswersForAuthedUser(state)
+        answers,
+        sortedQuestionIds: questionSelectors.getSortedQuestionsByTimestamp(state.scenes.mainScene.data.questions, Object.keys(answers))
     }
 }
 

@@ -24,10 +24,12 @@ export default function(state = initialState, action) {
     }
 }
 
+function getQuestionById(state, questionId){
+    return state[questionId];
+}
+
 export const selectors = {
-    getQuestionById: function (state, questionId){
-        return state[questionId];
-    },
+    getQuestionById,
     getUnansweredQuestionsForUser: function(state, userId) {
         return Object.keys(state).filter( questionId => {
             const question = state[questionId];
@@ -42,6 +44,11 @@ export const selectors = {
             optionOne: total ? (optionOneVotes/total * 100).toFixed() : 0,
             optionTwo: total ? (optionTwoVotes/total * 100).toFixed() : 0
         };
+    },
+    getSortedQuestionsByTimestamp: function(state, questionIds){
+       return questionIds.sort((qid1, qid2) => {
+           return getQuestionById(state, qid2).timestamp - getQuestionById(state, qid1).timestamp;
+       })
     }
 };
 
