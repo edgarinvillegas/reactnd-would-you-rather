@@ -7,11 +7,13 @@ import { selectors as questionSelectors } from 'App/scenes/MainScene/data/questi
 import './styles.css';
 
 function QuestionListItem({ questionId, timestamp, children }) {
+    const date = new Date(timestamp);
+    const formattedTimestamp = date.toLocaleDateString(date) + ' at ' + date.toLocaleTimeString();
     return (
         <ListGroupItem>
             <Link to={`/question/${questionId}`} className={'link-no-underline'}>
                 {children}
-                <div className="text-right text-info"> {timestamp} </div>  {/*TODO: remove */}
+                <div className="text-right text-info"> Created on {formattedTimestamp} </div>  {/*TODO: remove */}
             </Link>
         </ListGroupItem>
     );
