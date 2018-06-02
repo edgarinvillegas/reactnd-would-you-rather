@@ -7,7 +7,6 @@ import UnansweredQuestionListItem from "./UnansweredQuestionListItem";
 import { QuestionsTab } from 'App/scenes/MainScene/scenes/HomeScene';
 import { selectors as questionSelectors } from '../../../../../data/questions/redux';
 
-
 class UnansweredScene extends Component{
     render() {
         const { questionIds } = this.props;

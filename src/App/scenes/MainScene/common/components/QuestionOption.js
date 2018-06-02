@@ -28,7 +28,7 @@ function QuestionOption ({ text, isVoted = null, badgeText, onVote }) {
             color={optionConfig.color}
             className="d-flex justify-content-between align-items-center"
         >
-            <div> {text} </div>
+            <div className="text-capitalize"> {text} </div>
             <div>
                 <Badge pill className="badge-dark">{badgeText}</Badge>
                 <span className={optionConfig.iconClassName} />

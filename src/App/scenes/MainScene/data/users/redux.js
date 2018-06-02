@@ -70,6 +70,9 @@ export const selectors = {
     getUserById: function (state, userId) {
         return state[userId];
     },
+    getTopUsers: function (state){
+        return Object.keys(state);
+    },
     getAuthoredQuestionsCount,
     getAnswersCount,
     getPoints: function(state, userId) {

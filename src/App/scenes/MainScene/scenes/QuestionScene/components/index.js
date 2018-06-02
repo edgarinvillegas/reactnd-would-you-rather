@@ -8,8 +8,9 @@ import QuestionCard from '../../../common/components/QuestionCard';
 import { selectors as appSelectors } from 'App/redux';
 import { operations } from 'App/scenes/MainScene/data/redux';
 import VotesBar from './VotesBar';
+import { formatTimestamp } from '../../../common/helpers';
 
-const QuestionScene = ({ dispatch, questionId, authorId, answer, authedUserId }) => {
+const QuestionScene = ({ dispatch, questionId, authorId, answer, authedUserId, timestamp }) => {
     const onVote = (option) => {
         dispatch(operations.saveAnswerPromiseAction(authedUserId, questionId, option));
     };
@@ -22,6 +23,7 @@ const QuestionScene = ({ dispatch, questionId, authorId, answer, authedUserId })
                 <Container>
                     <Row>
                         <div className="col-md-12">
+                            <div className="text-right text-info"> Created on {formatTimestamp(timestamp)} </div>
                             <QuestionCard
                                 questionId={questionId}
                                 answer={answer}
@@ -51,7 +53,8 @@ function mapStateAndRouterToProps(state, { match: { params: { questionId } } }){
         questionId: questionId,
         authorId: question.author,
         answer: answer,
-        authedUserId: appSelectors.getAuthedUserId(state)
+        authedUserId: appSelectors.getAuthedUserId(state),
+        timestamp: question.timestamp
     }
 }
 

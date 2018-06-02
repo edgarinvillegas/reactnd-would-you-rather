@@ -10,7 +10,7 @@ function QuestionCard({question, showVotes = false, answer, onVote }) {
     const percentages = questionSelectors.getQuestionPercentages(question);
     const getBadgeText = (option) =>  {
         if(!showVotes) return '';
-        return `${question[option].votes.length} (${percentages[option]}%)`;
+        return `${question[option].votes.length} votes (${percentages[option]}%)`;
     };
     const getOnVoteFn = (option) => {
         return () => onVote(option);

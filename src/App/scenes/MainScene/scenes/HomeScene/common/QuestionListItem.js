@@ -5,15 +5,15 @@ import { connect } from 'react-redux';
 
 import { selectors as questionSelectors } from 'App/scenes/MainScene/data/questions/redux';
 import './styles.css';
+import { formatTimestamp } from 'App/scenes/MainScene/common/helpers';
 
 function QuestionListItem({ questionId, timestamp, children }) {
-    const date = new Date(timestamp);
-    const formattedTimestamp = date.toLocaleDateString(date) + ' at ' + date.toLocaleTimeString();
+
     return (
         <ListGroupItem>
             <Link to={`/question/${questionId}`} className={'link-no-underline'}>
                 {children}
-                <div className="text-right text-info"> Created on {formattedTimestamp} </div>  {/*TODO: remove */}
+                <div className="text-right text-info"> Created on {formatTimestamp(timestamp)} </div>
             </Link>
         </ListGroupItem>
     );
