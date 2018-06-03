@@ -1,61 +1,39 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Row } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-import { UserDetails } from 'App/scenes/MainScene';
 import { selectors as questionSelectors } from 'App/scenes/MainScene/data/questions/redux';
-import QuestionCard from '../../../common/components/QuestionCard';
-import { selectors as appSelectors } from 'App/redux';
-import { operations } from 'App/scenes/MainScene/data/redux';
-import VotesBar from './VotesBar';
-import { formatTimestamp } from '../../../common/helpers';
+import QuestionDetails from './QuestionDetails';
 
-const QuestionScene = ({ dispatch, questionId, authorId, answer, authedUserId, timestamp }) => {
-    const onVote = (option) => {
-        dispatch(operations.saveAnswerPromiseAction(authedUserId, questionId, option));
-    };
-    return (
-        <Fragment>
-            <div className="py-5">
-                <UserDetails userId={authorId} />
-            </div>
+function QuestionScene(props){
+    if(!props.questionId){
+        return (
             <div className="py-5">
                 <Container>
                     <Row>
                         <div className="col-md-12">
-                            <div className="text-right text-info"> Created on {formatTimestamp(timestamp)} </div>
-                            <QuestionCard
-                                questionId={questionId}
-                                answer={answer}
-                                showVotes={!!answer}
-                                onVote={answer ? null : onVote }
-                            />
+                            <h1 className="pb-4">404: Not found</h1>
+                            <p>
+                                Unfortunately, this question doesn't exist.
+                                <Link to={'/'} > Home </Link>
+                            </p>
                         </div>
                     </Row>
-                    {!!answer && (
-                        <Row>
-                            <div className="col-md-12">
-                                <VotesBar questionId={questionId} answer={answer} />
-                            </div>
-                        </Row>
-                    )}
                 </Container>
             </div>
-        </Fragment>
+        );
+    }
+    return (
+        <QuestionDetails {...props} />
     );
-};
+}
 
 function mapStateAndRouterToProps(state, { match: { params: { questionId } } }){
     const question = questionSelectors.getQuestionById(state.scenes.mainScene.data.questions, questionId);
-    const answer = appSelectors.getAnswerForAuthedUser(state, questionId);
-    console.log('answer', answer);
     return {
-        questionId: questionId,
-        authorId: question.author,
-        answer: answer,
-        authedUserId: appSelectors.getAuthedUserId(state),
-        timestamp: question.timestamp
-    }
+        questionId: question ? question.id : ''
+    };
 }
 
 export default connect(mapStateAndRouterToProps)(QuestionScene);
