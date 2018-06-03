@@ -1,6 +1,6 @@
 import {LOAD_USERS_FULFILLED} from "./actions";
 import { SAVE_ANSWER_PENDING, SAVE_QUESTION_FULFILLED } from '../shared/actions';
-
+import { LOGOUT } from 'App/data/authedUserId/actions';
 
 /**
  * Table<User>
@@ -21,7 +21,9 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 [author]: userReducer(state[author], action)
-            }
+            };
+        case LOGOUT:
+            return initialState;
         default:
             return state;
     }

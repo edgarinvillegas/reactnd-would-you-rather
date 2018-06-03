@@ -1,5 +1,6 @@
 import {LOAD_QUESTIONS_FULFILLED} from "./actions";
 import { SAVE_ANSWER_PENDING, SAVE_QUESTION_FULFILLED } from '../shared/actions';
+import { LOGOUT } from 'App/data/authedUserId/actions';
 
 /*
 Table of questions
@@ -18,7 +19,9 @@ export default function(state = initialState, action) {
         case SAVE_QUESTION_FULFILLED:
             const question = action.payload;
             console.log('questionsReducer/SAVE_QUESTION_FULFILLED payload :', action.payload);
-            return {...state, [question.id]: question }
+            return {...state, [question.id]: question };
+        case LOGOUT:
+            return initialState;
         default:
             return state;
     }

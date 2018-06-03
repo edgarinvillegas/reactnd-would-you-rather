@@ -6,6 +6,7 @@ import {Link, NavLink} from "react-router-dom";
 import { selectors as appSelectors } from 'App/redux';
 import { selectors as userSelectors } from 'App/scenes/MainScene/data/users/redux';
 import { selectors } from '../redux';
+import { operations } from 'App/data/authedUserId/redux';
 
 
 class NavBar extends Component {
@@ -17,6 +18,11 @@ class NavBar extends Component {
         this.setState((prevState)=>({
             collapsed: !prevState.collapsed
         }));
+    };
+
+    signOut = (event) => {
+        event.preventDefault();
+        this.props.dispatch(operations.logoutAction());
     };
 
     render() {
@@ -50,13 +56,18 @@ class NavBar extends Component {
                                 </ReactStrapNavLink>
                             </NavItem>
                             <NavItem className="text-left text-nowrap">
+                                <a className="nav-link" href="/" onClick={this.signOut}>
+                                    <i className="fa fa-sign-out" /> Sign out
+                                </a>
+                            </NavItem>
+                            <NavItem className="text-left text-nowrap">
                                 <a className="nav-link">
                                     <img className="img-fluid rounded-circle px-0"
                                          alt="Avatar"
                                          src={avatarURL}
                                          width="32px" height="32px"
                                     />
-                                    Welcome, {username}
+                                    {username}
                                 </a>
                             </NavItem>
                         </Nav>
