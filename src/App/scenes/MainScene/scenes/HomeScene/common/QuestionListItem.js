@@ -10,7 +10,7 @@ import { formatTimestamp } from 'App/scenes/MainScene/common/helpers';
 function QuestionListItem({ questionId, timestamp, children }) {
 
     return (
-        <ListGroupItem>
+        <ListGroupItem className="question-list-item">
             <Link to={`/question/${questionId}`} className={'link-no-underline'}>
                 {children}
                 <div className="text-right text-info"> Created on {formatTimestamp(timestamp)} </div>

@@ -4,3 +4,7 @@ a.link-no-underline:-webkit-any-link {
     opacity: 0.9;
     text-decoration: none;
 }
+.question-list-item:hover {
+    opacity: 0.9;
+    background-color: #f8f9fa;
+}
