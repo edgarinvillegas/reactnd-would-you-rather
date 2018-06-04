@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import withSpinner from 'App/scenes/MainScene/common/components/withSpinner';
+
+const ButtonWithSpinner = withSpinner(Button);
 
 class NewQuestionScenePres extends Component {
 
@@ -44,6 +47,7 @@ class NewQuestionScenePres extends Component {
 
     render() {
         const { optionOne, optionTwo } = this.state;
+        const { submitButtonReady } = this.props;
         return (
             <div className="py-5">
                 <Container>
@@ -73,9 +77,9 @@ class NewQuestionScenePres extends Component {
                                         value={optionTwo || ''}
                                     />
                                 </FormGroup>
-                                <Button color="primary" onClick={this.onSubmitClick}>
+                                <ButtonWithSpinner isLoading={submitButtonReady} color="primary" onClick={this.onSubmitClick}>
                                     Submit
-                                </Button>
+                                </ButtonWithSpinner>
                             </Form>
                         </div>
                     </Row>

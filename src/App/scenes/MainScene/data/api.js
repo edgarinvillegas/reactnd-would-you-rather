@@ -32,7 +32,7 @@ let users = {
     },
     questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
   }
-}
+};
 
 let questions = {
   "8xf0y6ziyjabvozdd253nd": {
@@ -113,7 +113,7 @@ let questions = {
       text: 'write Swift'
     }
   },
-}
+};
 
 function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
@@ -121,13 +121,13 @@ function generateUID () {
 
 export function _getUsers$ () {
   return new Promise((res, rej) => {
-    setTimeout(() => res({...users}), 1000)
+    setTimeout(() => res({...users}), 3000)
   })
 }
 
 export function _getQuestions$ () {
   return new Promise((res, rej) => {
-    setTimeout(() => res({...questions}), 1000)
+    setTimeout(() => res({...questions}), 3000)
   })
 }
 
@@ -149,16 +149,16 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
 
 export function _saveQuestion$ (question) {
   return new Promise((res, rej) => {
-    const formattedQuestion = formatQuestion(question)
+    const formattedQuestion = formatQuestion(question);
 
     setTimeout(() => {
       questions = {
         ...questions,
         [formattedQuestion.id]: formattedQuestion
-      }
+      };
 
       res(formattedQuestion)
-    }, 1000)
+    }, 3000)
   })
 }
 
@@ -174,7 +174,7 @@ export function _saveQuestionAnswer$ ({ authedUser, qid, answer }) {
             [qid]: answer
           }
         }
-      }
+      };
 
       questions = {
         ...questions,
@@ -185,9 +185,9 @@ export function _saveQuestionAnswer$ ({ authedUser, qid, answer }) {
             votes: questions[qid][answer].votes.concat([authedUser])
           }
         }
-      }
+      };
 
       res()
-    }, 500)
+    }, 1500)
   })
 }

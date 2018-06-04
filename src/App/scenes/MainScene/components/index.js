@@ -12,7 +12,7 @@ import { NewQuestionScene } from '../scenes/NewQuestionScene';
 
 import withSpinner from '../common/components/withSpinner';
 
-const SwitchWithSpinner = withSpinner(Switch);
+const RouteWithSpinner = withSpinner(Route);
 
 class MainScene extends Component {
     componentDidMount(){
@@ -25,25 +25,23 @@ class MainScene extends Component {
         return (
             <Fragment>
                 <NavBar /> {/*Always show navbar*/}
-                <SwitchWithSpinner isLoading={loading}>
+                <Switch>
                     <Route path={'/'} exact render={() => <Redirect to={'/home'} />}/>
                     {/*<Redirect from={'/'} to={'/home'} />*/}
                     <Route path={'/home'} component={HomeScene} />
-                    <Route path={'/question/:questionId'} component={QuestionScene} />
-                    <Route path={'/board'} component={LeaderboardScene} />
+                    <RouteWithSpinner isLoading={loading} path={'/question/:questionId'} component={QuestionScene} />
+                    <RouteWithSpinner isLoading={loading} path={'/board'} component={LeaderboardScene} />
                     <Route path={'/add'} component={NewQuestionScene} />
-                </SwitchWithSpinner>
+                </Switch>
             </Fragment>
         );
     }
 }
 
 function mapStateToProps(stateTree){
-    //console.log("loading: ", areQuestionsAndUsersLoading(stateTree));
     return {
         loading: loadingSelectors.areQuestionsAndUsersLoading(stateTree.scenes.mainScene.loading)
-        //loading: false
-    }
+    };
 }
 
 export default withRouter(connect(mapStateToProps)(MainScene));

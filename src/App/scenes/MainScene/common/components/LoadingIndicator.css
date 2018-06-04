@@ -1,12 +1,15 @@
-/* Center the loader */
 .loader {
-    position: absolute;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Center the spinner */
+.spinner {
     left: 50%;
-    top: 50%;
-    z-index: 1;
     width: 150px;
     height: 150px;
-    margin: -75px 0 0 -75px;
+    margin: auto;
+    padding: 10px;
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid #3498db;
@@ -35,7 +38,7 @@
 
 @-webkit-keyframes animatebottom {
     from { bottom:-100px; opacity:0 }
-    to { bottom:0px; opacity:1 }
+    to { bottom:0; opacity:1 }
 }
 
 @keyframes animatebottom {

@@ -6,6 +6,7 @@ import { selectors as appSelectors } from 'App/redux';
 import { selectors as questionSelectors } from 'App/scenes/MainScene/data/questions/redux';
 import AnsweredQuestionListItem from "./AnsweredQuestionListItem";
 import { QuestionsTab } from 'App/scenes/MainScene/scenes/HomeScene';
+import { selectors as loadingSelectors } from 'App/scenes/MainScene/redux';
 
 
 class AnsweredScene extends Component{
@@ -39,7 +40,8 @@ class AnsweredScene extends Component{
 }
 
 function mapStateToProps(state){
-    const answers = appSelectors.getAnswersForAuthedUser(state);
+    const loading = loadingSelectors.areQuestionsAndUsersLoading(state.scenes.mainScene.loading);
+    const answers = loading ? {} : appSelectors.getAnswersForAuthedUser(state);
     return {
         answers,
         sortedQuestionIds: questionSelectors.getSortedQuestionsByTimestamp(state.scenes.mainScene.data.questions, Object.keys(answers))
