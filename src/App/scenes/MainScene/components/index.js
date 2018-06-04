@@ -9,8 +9,10 @@ import { LeaderboardScene } from '../scenes/LeaderboardScene';
 import { operations } from '../data/redux';
 import { selectors as loadingSelectors } from '../redux';
 import { NewQuestionScene } from '../scenes/NewQuestionScene';
-import LoadingIndicator from '../common/components/LoadingIndicator';
 
+import withSpinner from '../common/components/withSpinner';
+
+const SwitchWithSpinner = withSpinner(Switch);
 
 class MainScene extends Component {
     componentDidMount(){
@@ -19,19 +21,18 @@ class MainScene extends Component {
 
     render() {
         const { loading } = this.props;
+
         return (
             <Fragment>
                 <NavBar /> {/*Always show navbar*/}
-                { loading ? <LoadingIndicator /> : (
-                    <Switch>
-                        <Route path={'/'} exact render={() => <Redirect to={'/home'} />}/>
-                        {/*<Redirect from={'/'} to={'/home'} />*/}
-                        <Route path={'/home'} component={HomeScene} />
-                        <Route path={'/question/:questionId'} component={QuestionScene} />
-                        <Route path={'/board'} component={LeaderboardScene} />
-                        <Route path={'/add'} component={NewQuestionScene} />
-                    </Switch>
-                )}
+                <SwitchWithSpinner isLoading={loading}>
+                    <Route path={'/'} exact render={() => <Redirect to={'/home'} />}/>
+                    {/*<Redirect from={'/'} to={'/home'} />*/}
+                    <Route path={'/home'} component={HomeScene} />
+                    <Route path={'/question/:questionId'} component={QuestionScene} />
+                    <Route path={'/board'} component={LeaderboardScene} />
+                    <Route path={'/add'} component={NewQuestionScene} />
+                </SwitchWithSpinner>
             </Fragment>
         );
     }

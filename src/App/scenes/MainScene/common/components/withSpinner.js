@@ -1,7 +1,5 @@
-// withSpinner.js
-
 import React from 'react';
-import { ScrollView } from 'react-native';
+
 import LoadingIndicator from './LoadingIndicator';
 
 const withSpinner = Comp => ({ isLoading, children, ...props }) => {
