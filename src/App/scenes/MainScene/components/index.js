@@ -9,6 +9,7 @@ import { LeaderboardScene } from '../scenes/LeaderboardScene';
 import { operations } from '../data/redux';
 import { selectors as loadingSelectors } from '../redux';
 import { NewQuestionScene } from '../scenes/NewQuestionScene';
+import LoadingIndicator from '../common/components/LoadingIndicator';
 
 
 class MainScene extends Component {
@@ -21,7 +22,7 @@ class MainScene extends Component {
         return (
             <Fragment>
                 <NavBar /> {/*Always show navbar*/}
-                { loading ? <h1>Loading....</h1> : (
+                { loading ? <LoadingIndicator /> : (
                     <Switch>
                         <Route path={'/'} exact render={() => <Redirect to={'/home'} />}/>
                         {/*<Redirect from={'/'} to={'/home'} />*/}
