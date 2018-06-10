@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { LoginScene } from './scenes/LoginScene';
 import { MainScene } from './scenes/MainScene';
 import { selectors as appSelectors } from 'App/redux';
+import { NotificationContainer } from './common/util/notification';
 
 class App extends Component {
     render() {
@@ -12,6 +13,7 @@ class App extends Component {
         return (
             <Router>
                 <Fragment>
+                    <NotificationContainer />
                     {loggedIn ? (
                         /*<Route path={'/'} component={MainScene} />*/
                         <MainScene />

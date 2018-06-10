@@ -9,10 +9,13 @@ import { selectors as appSelectors } from 'App/redux';
 import { operations } from 'App/scenes/MainScene/data/redux';
 import VotesBar from './VotesBar';
 import { formatTimestamp } from 'App/scenes/MainScene/common/helpers';
+import { notify } from 'App/common/util/notification';
 
 const QuestionDetails = ({ dispatch, questionId, authorId, answer, authedUserId, timestamp }) => {
     const onVote = (option) => {
-        dispatch(operations.saveAnswerPromiseAction(authedUserId, questionId, option));
+        dispatch(operations.saveAnswerPromiseAction(authedUserId, questionId, option))
+            .then(() => notify('Saved answer succesfully'))
+        ;
     };
     return (
         <Fragment>
