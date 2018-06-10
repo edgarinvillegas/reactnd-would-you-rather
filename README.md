@@ -8,7 +8,7 @@ Clone the GitHub repository and use npm to install.
 
 ```
 $ git clone https://github.com/edgarinvillegas/reactnd-would-you-rather.git
-$ cd reactnd-myreads
+$ cd reactnd-would-you-rather
 $ npm install
 ```
 
