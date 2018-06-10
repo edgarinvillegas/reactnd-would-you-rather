@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Button, Collapse, Container, Nav, NavItem, NavLink as ReactStrapNavLink} from 'reactstrap';
-import {Link, NavLink} from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 
 import { selectors as appSelectors } from 'App/redux';
 import { selectors as userSelectors } from 'App/scenes/MainScene/data/users/redux';
@@ -23,6 +23,7 @@ class NavBar extends Component {
     signOut = (event) => {
         event.preventDefault();
         this.props.dispatch(operations.logoutAction());
+        this.props.history.push('/');
     };
 
     render() {
@@ -91,4 +92,4 @@ export default connect(state => {
         avatarURL: user.avatarURL,
         username: user.name
     }
-})(NavBar);
+})(withRouter(NavBar));
