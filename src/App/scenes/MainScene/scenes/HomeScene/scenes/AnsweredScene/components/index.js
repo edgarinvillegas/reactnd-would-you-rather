@@ -8,7 +8,6 @@ import AnsweredQuestionListItem from "./AnsweredQuestionListItem";
 import { QuestionsTab } from 'App/scenes/MainScene/scenes/HomeScene';
 import { selectors as loadingSelectors } from 'App/scenes/MainScene/redux';
 
-
 class AnsweredScene extends Component{
     render() {
         const { answers, sortedQuestionIds: questionIds } = this.props;

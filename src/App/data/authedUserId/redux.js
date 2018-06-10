@@ -1,7 +1,9 @@
-//This could have been named reducer1.js
 import { LOGIN, loginAction, LOGOUT, logoutAction } from './actions';
 
-//@reducer
+/**
+ * Reducer for stateTree.data.authedUserId
+ * authedUserId is just a string.
+ */
 export default function(state = '', action){
     switch(action.type){
         case LOGIN:
@@ -13,12 +15,14 @@ export default function(state = '', action){
     }
 }
 
+//selectors
 export const selectors = {
     getAuthedUserId: function  (state){
         return state;
     }
 };
 
+//operations
 export const operations = {
     loginAction,
     logoutAction

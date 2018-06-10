@@ -1,4 +1,3 @@
-//////Action creator
 export const LOGIN = 'App/data/LOGIN';
 export const LOGOUT = 'App/data/LOGOUT';
 

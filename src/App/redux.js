@@ -6,15 +6,16 @@ import { selectors as usersSelectors } from './scenes/MainScene/data/users/redux
 import { selectors as questionSelectors} from './scenes/MainScene/data/questions/redux';
 import { selectors as authedUserIdSelectors } from './data/authedUserId/redux';
 
+// Reducer for stateTree.data.authedUserId
 export default combineReducers({
     data: dataReducer,
     scenes: scenesReducer
 });
-// export const getAuthedUserId = state => dataSelectors.getAuthedUserId(state.data);
 
+//Selectors
 
 function getAnswersForAuthedUser (stateTree){
-    return usersSelectors.getAnswersForUser(stateTree.scenes.mainScene.data.users, stateTree.data.authedUserId);      //selector shouldn't know about state non-straightforward structure
+    return usersSelectors.getAnswersForUser(stateTree.scenes.mainScene.data.users, stateTree.data.authedUserId);
 }
 
 function getUnansweredQuestionsForAuthedUser(stateTree){

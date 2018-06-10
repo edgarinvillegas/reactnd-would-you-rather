@@ -8,7 +8,7 @@ import QuestionCard from '../../../common/components/QuestionCard';
 import { selectors as appSelectors } from 'App/redux';
 import { operations } from 'App/scenes/MainScene/data/redux';
 import VotesBar from './VotesBar';
-import { formatTimestamp } from '../../../common/helpers';
+import { formatTimestamp } from 'App/scenes/MainScene/common/helpers';
 
 const QuestionDetails = ({ dispatch, questionId, authorId, answer, authedUserId, timestamp }) => {
     const onVote = (option) => {

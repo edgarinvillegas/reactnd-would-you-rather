@@ -2,11 +2,10 @@ import {LOAD_QUESTIONS_FULFILLED} from "./actions";
 import { SAVE_ANSWER_PENDING, SAVE_QUESTION_FULFILLED } from '../shared/actions';
 import { LOGOUT } from 'App/data/authedUserId/actions';
 
-/*
-Table of questions
-*/
-
-
+/**
+ * Reducer for state.scenes.mainScene.data.questions piece of state.
+ * Questions state is a 'table' of questions in the same format as returned by the api.
+ */
 const initialState = {};
 export default function(state = initialState, action) {
     switch(action.type) {
@@ -17,7 +16,6 @@ export default function(state = initialState, action) {
             return {...state, [questionId]: questionReducer(state[questionId], action) };
         case SAVE_QUESTION_FULFILLED:
             const question = action.payload;
-            console.log('questionsReducer/SAVE_QUESTION_FULFILLED payload :', action.payload);
             return {...state, [question.id]: question };
         case LOGOUT:
             return initialState;
@@ -26,6 +24,7 @@ export default function(state = initialState, action) {
     }
 }
 
+//Selectors
 function getQuestionById(state, questionId){
     return state[questionId];
 }
@@ -54,7 +53,10 @@ export const selectors = {
     }
 };
 
-//state here is a question object
+/**
+ * Aux reducer for a single question.
+ * state here is a question object
+ */
 function questionReducer(state = {}, action){
     switch(action.type) {
         case SAVE_ANSWER_PENDING:

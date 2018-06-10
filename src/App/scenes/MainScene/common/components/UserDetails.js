@@ -42,15 +42,8 @@ const UserDetails = ({rank, name, avatarURL, askedCount, answeredCount, points})
 
 
 function mapStateToProps({ scenes: { mainScene: { data: { users } } } }, { userId }){
-    //console.log('state: ', state);
-    //const users = state.scenes.mainScene.data.users;
-    //console.log('users: ', users);
-    //return {};
-    console.log(userSelectors);
-    console.log('userId:', userId);
     const user = userSelectors.getUserById(users, userId);
     return {
-        // rank: showRank ? 1 : 0,
         name: user.name,
         avatarURL: user.avatarURL,
         askedCount: userSelectors.getAuthoredQuestionsCount(users, userId),

@@ -3,7 +3,8 @@ import { SAVE_ANSWER_PENDING, SAVE_QUESTION_FULFILLED } from '../shared/actions'
 import { LOGOUT } from 'App/data/authedUserId/actions';
 
 /**
- * Table<User>
+ * Reducer for state.scenes.mainScene.data.users piece of state.
+ * Users state is a 'table' of questions in the same format as returned by the api.
  */
 const initialState = {};
 export default function(state = initialState, action){
@@ -17,7 +18,7 @@ export default function(state = initialState, action){
                 [userId]: userReducer(state[userId], action)
             };
         case SAVE_QUESTION_FULFILLED:
-            const { author } = action.payload;  // TODO: consider renaming to userId
+            const { author } = action.payload;
             return {
                 ...state,
                 [author]: userReducer(state[author], action)
@@ -31,7 +32,7 @@ export default function(state = initialState, action){
 
 /**
  *
- * @param state user object
+ * Aux reducer. state is a single user object
  */
 function userReducer(state = {}, action){
     switch(action.type){
@@ -55,6 +56,8 @@ function userReducer(state = {}, action){
             return state;
     }
 }
+
+// Selectors
 
 function getAuthoredQuestionsCount(state, userId) {
     const user = state[userId];

@@ -24,7 +24,7 @@ class MainScene extends Component {
 
         return (
             <Fragment>
-                <NavBar /> {/*Always show navbar*/}
+                <NavBar />
                 <Switch>
                     <Route path={'/'} exact render={() => <Redirect to={'/home'} />}/>
                     {/*<Redirect from={'/'} to={'/home'} />*/}

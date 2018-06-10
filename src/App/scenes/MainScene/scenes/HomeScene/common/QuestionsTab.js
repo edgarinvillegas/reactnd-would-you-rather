@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { ListGroup } from 'reactstrap';
 import { connect } from 'react-redux';
 
-import withSpinner from '../../../common/components/withSpinner';
+import withSpinner from 'App/scenes/MainScene/common/components/withSpinner';
 import { selectors as loadingSelectors } from 'App/scenes/MainScene/redux';
 
 const FragmentWithSpinner = withSpinner(Fragment);

@@ -38,7 +38,6 @@ QuestionCard.propTypes = {
     answer: PropTypes.string,
     onVote: PropTypes.func,
     questionId: PropTypes.string.isRequired,
-    //Connected props
 };
 
 function mapStateToProps(state, { questionId }){

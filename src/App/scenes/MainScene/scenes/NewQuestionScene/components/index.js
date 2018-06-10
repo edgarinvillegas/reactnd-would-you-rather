@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import NewQuestionScenePres from './NewQuestionScenePres';
 import { selectors as appSelectors } from 'App/redux';
-import { saveQuestionPromiseAction } from '../../../data/shared/actions';
+import { saveQuestionPromiseAction } from 'App/scenes/MainScene/data/shared/actions';
 import { selectors as loadingSelectors } from 'App/scenes/MainScene/redux';
 
 function mergeProps(stateProps, dispatchProps, ownProps){
