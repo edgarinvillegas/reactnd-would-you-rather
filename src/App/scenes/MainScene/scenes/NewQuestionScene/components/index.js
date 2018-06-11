@@ -13,7 +13,8 @@ function mergeProps(stateProps, dispatchProps, ownProps){
                 saveQuestionPromiseAction(optionOne, optionTwo, stateProps.userId)
             ).then( ({ value, action }) => { // TODO: analyze value vs action.payload
                 notify('Saved question succesfully');
-                ownProps.history.push(`/question/${value.id}`)
+                // ownProps.history.push(`/question/${value.id}`)
+                ownProps.history.push(`/`);
             });
         },
         submitButtonReady: stateProps.submitButtonReady

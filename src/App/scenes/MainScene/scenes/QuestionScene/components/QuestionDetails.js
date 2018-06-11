@@ -26,6 +26,7 @@ const QuestionDetails = ({ dispatch, questionId, authorId, answer, authedUserId,
                 <Container>
                     <Row>
                         <div className="col-md-12">
+                            <h2>Would you rather?</h2>
                             <div className="text-right text-info"> Created on {formatTimestamp(timestamp)} </div>
                             <QuestionCard
                                 questionId={questionId}
