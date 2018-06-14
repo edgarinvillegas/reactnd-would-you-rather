@@ -9,22 +9,26 @@ import { QuestionsTab } from 'App/scenes/MainScene/scenes/HomeScene';
 import { selectors as loadingSelectors } from 'App/scenes/MainScene/redux';
 
 class AnsweredScene extends Component{
+    getMessage = () => {
+        return (
+            <Fragment>
+                {this.props.sortedQuestionIds.length === 0 && (
+                    <p>
+                        You haven't answered any question yet!
+                        You might want to <Link to={'/home/unanswered'} > answer some. </Link>
+                    </p>
+                )}
+            </Fragment>
+        )
+    };
+
     render() {
         const { answers, sortedQuestionIds: questionIds } = this.props;
         return (
             <QuestionsTab
                 title={'I would rather...'}
                 tabId={'tabone'}
-                Message={() => (
-                    <Fragment>
-                        {questionIds.length === 0 && (
-                            <p>
-                                You haven't answered any question yet!
-                                You might want to <Link to={'/home/unanswered'} > answer some. </Link>
-                            </p>
-                        )}
-                    </Fragment>
-                )}
+                Message={() => this.getMessage()}
             >
                 {questionIds.map( questionId => (
                     <AnsweredQuestionListItem

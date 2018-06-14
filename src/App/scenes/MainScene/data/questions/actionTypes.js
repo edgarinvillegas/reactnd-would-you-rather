@@ -1,0 +1,2 @@
+export const LOAD_QUESTIONS = 'App/MainScene/data/LOAD_QUESTIONS';
+export const LOAD_QUESTIONS_FULFILLED = LOAD_QUESTIONS + '_FULFILLED';

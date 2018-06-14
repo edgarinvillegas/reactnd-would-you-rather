@@ -1,4 +1,4 @@
-import {LOAD_USERS_FULFILLED} from "./actions";
+import {LOAD_USERS_FULFILLED} from "./actionTypes";
 import { SAVE_ANSWER_PENDING, SAVE_QUESTION_FULFILLED } from '../shared/actions';
 import { LOGOUT } from 'App/data/authedUserId/actions';
 

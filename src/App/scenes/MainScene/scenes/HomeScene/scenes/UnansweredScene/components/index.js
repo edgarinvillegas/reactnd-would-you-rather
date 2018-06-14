@@ -8,22 +8,26 @@ import { QuestionsTab } from 'App/scenes/MainScene/scenes/HomeScene';
 import { selectors as questionSelectors } from 'App/scenes/MainScene/data/questions/redux';
 
 class UnansweredScene extends Component{
+    getMessage = () => {
+        return (
+            <Fragment>
+                {this.props.questionIds.length === 0 && (
+                    <p>
+                        Congratulations! you have answered all questions.
+                        You might want to <Link to={'/add'} > create a new question </Link>
+                    </p>
+                )}
+            </Fragment>
+        );
+    };
+
     render() {
         const { questionIds } = this.props;
         return (
             <QuestionsTab
                 title={'Would you rather...?'}
                 tabId={'tabone'}
-                Message={() => (
-                    <Fragment>
-                        {questionIds.length === 0 && (
-                            <p>
-                                Congratulations! you have answered all questions.
-                                You might want to <Link to={'/add'} > create a new question </Link>
-                            </p>
-                        )}
-                    </Fragment>
-                )}
+                Message={() => this.getMessage()}
             >
                 {questionIds.map( questionId => (
                     <UnansweredQuestionListItem

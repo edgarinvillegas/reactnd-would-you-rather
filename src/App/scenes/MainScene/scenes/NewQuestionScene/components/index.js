@@ -6,18 +6,18 @@ import { saveQuestionPromiseAction } from 'App/scenes/MainScene/data/shared/acti
 import { selectors as loadingSelectors } from 'App/scenes/MainScene/redux';
 import { notify } from 'App/common/util/notification';
 
-function mergeProps(stateProps, dispatchProps, ownProps){
+function mergeProps({ userId, submitButtonReady }, { dispatch }, { history }){
     return {
         saveQuestion: (optionOne, optionTwo) => {
-            dispatchProps.dispatch(
-                saveQuestionPromiseAction(optionOne, optionTwo, stateProps.userId)
+            dispatch(
+                saveQuestionPromiseAction(optionOne, optionTwo, userId)
             ).then( ({ value, action }) => { // TODO: analyze value vs action.payload
                 notify('Saved question succesfully');
                 // ownProps.history.push(`/question/${value.id}`)
-                ownProps.history.push(`/`);
+                history.push(`/`);
             });
         },
-        submitButtonReady: stateProps.submitButtonReady
+        submitButtonReady: submitButtonReady
     }
 }
 
@@ -26,6 +26,6 @@ export default connect(
         userId: appSelectors.getAuthedUserId(state),
         submitButtonReady: loadingSelectors.areQuestionsAndUsersLoading(state.scenes.mainScene.loading)
     }),
-    undefined,
+    undefined, //I couldn't use the actions shortcut because the action I need returns a promise when dispatched (redux-promise-middleware)
     mergeProps
 )(NewQuestionScenePres);

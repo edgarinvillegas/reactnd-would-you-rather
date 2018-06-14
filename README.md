@@ -28,3 +28,6 @@ Then open http://localhost:3000/ in your browser and voilá, start answering pol
 This is just a repository to practice React, so it's not intended
 to receive contributions. However, feel free to submit a pull request if you
 do want to contribute.
+
+##License
+MIT
